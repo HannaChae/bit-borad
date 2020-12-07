@@ -9,6 +9,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ArticleDto {
-    private String artnum, wirterid, title, content, regDate;
+    private String artNum, writerId, title, content, regDate, count;
 
 }
