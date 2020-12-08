@@ -37,8 +37,11 @@
     </tbody>
     </table>
     <script>
-    document.getElementById('home').addEventListener('click', e=>
-    location.href = '/')
+        document.getElementById('home').addEventListener('click', e=>
+        location.href = '/')
+        $.getJSON('/articles/crawling', d => {
+            
+        })
     </script>
 </body>
 </html>

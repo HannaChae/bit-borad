@@ -1,6 +1,7 @@
 package com.example.demo.impls;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import com.example.demo.domains.ArticleDto;
 import com.example.demo.repositories.ArticleRepository;
@@ -22,6 +23,16 @@ public class ArticleServiceImpl implements ArticleService {
         article.setRegDate(LocalDate.now().toString());
         printer.accept("서비스로 전송된 데이터: " + article.toString());
         return articleRepository.insert(article);
+    }
+
+    @Override
+    public List<ArticleDto> list() {
+        return null;
+    }
+
+    @Override
+    public int crawling(String string) {
+        return 0;
     }
 
 }
