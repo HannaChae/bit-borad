@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component("ug")
 public class UserGenerator extends Proxy {
     public String makeUserid() {
         List<String> uidText = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "n", "m", "o",
@@ -11,8 +14,8 @@ public class UserGenerator extends Proxy {
                 "0");
         Collections.shuffle(uidText);
 
-        return String.format("%s%s%s%s%s", uidText.get(0), uidText.get(0), uidText.get(0), uidText.get(0),
-                uidText.get(0));
+        return String.format("%s%s%s%s%s", uidText.get(0), uidText.get(1), uidText.get(2), uidText.get(3),
+                uidText.get(4));
     }
 
 }

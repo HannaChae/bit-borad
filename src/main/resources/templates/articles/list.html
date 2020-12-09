@@ -26,21 +26,43 @@
             </tr>
         </thead>
     
-    <tbody>
-        <tr>
-            <td class="text-center">1</td>
-            <td class="text-center">테스트</td>
-            <td class="text-center">홍길동</td>
-            <td class="text-center">2020-12-07</td>
-            <td class="text-center">100</td>
-        </tr>
+    <tbody id = "tb">
+        
     </tbody>
     </table>
     <script>
-        document.getElementById('home').addEventListener('click', e=>
-        location.href = '/')
-        $.getJSON('/articles/crawling', d => {
-            
+        $('#home').click(e=> {location.href = '/'})
+        $.getJSON('/articles', d => {
+            if(d.count !== 0 ){
+                const list = d.list
+                let tr = ''
+                let i = 0
+                for(; i < d.count; i++){
+                 tr += '<tr>'
+                    +'<td class="text-center">'+list[i].artNum+'</td>'
+                    +'<td class="text-center"><a class="title" id="'+list[i].artNum+'" href="#" >'+list[i].title+'</td>'
+                    +'<td class="text-center">'+list[i].writerId+'</td>'
+                    +'<td class="text-center">'+list[i].regDate+'</td>'
+                    +'<td class="text-center">'+list[i].count+'</td>'
+                    +'</tr>'
+                    }
+                $('#tb').html(tr)
+                $('.title').each(function(i){
+                    $(this).click(e => {
+                        e.preventDefault()
+                        alert(`${i} 번 ID: ${this.id}`)
+                        localStorage.setItem('artNum', `${this.id}`)
+                        location.href = '/move/articles/detail'
+                    })
+                })
+                
+            }else{
+                $(".artNum").Text('조회결과 없음')
+                $(".title").Text('조회결과 없음')
+                $(".writerId").Text('조회결과 없음')
+                $(".regDate").Text('조회결과 없음')
+                $(".count").Text('조회결과 없음')
+            }
         })
     </script>
 </body>

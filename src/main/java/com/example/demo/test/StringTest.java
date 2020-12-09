@@ -2,10 +2,6 @@ package com.example.demo.test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.jsoup.nodes.Document;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 public class StringTest {
     public static void main(String[] args) {
@@ -23,18 +19,6 @@ public class StringTest {
         // System.out.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new
         // Date()));
         String url = "https://music.bugs.co.kr/recomreview?&order=listorder&page=2";
-        try {
-            Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
-            Elements arr = rawData.select("a[class=albumTitle hyrend]");
-            System.out.println("===== Title ===== " + arr.size());
-            for (Element e : arr)
-                System.out.println(">> " + e.text());
-            System.out.println("===== Content =====");
-            Elements arr2 = rawData.select("aside[class=recommendReview] h1");
-            for (Element e : arr2)
-                System.out.println(">> " + e.text());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }

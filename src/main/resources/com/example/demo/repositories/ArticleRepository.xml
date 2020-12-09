@@ -6,4 +6,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 insert into articles (writer_id, title, content, reg_date, count) 
 values (#{writerId}, #{title}, #{content}, #{regDate}, #{count})
 </insert>
+<select id ="count" resultType="int">
+    select count(*) from articles
+</select>
+<select id="selectAll" resultType="com.example.demo.domains.ArticleDto">
+    select art_num artNum,
+           writer_id writerId,
+           title, 
+           content, 
+           reg_date regDate, 
+           count
+           from articles
+</select>
 </mapper>

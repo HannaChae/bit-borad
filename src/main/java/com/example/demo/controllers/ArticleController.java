@@ -34,18 +34,26 @@ public class ArticleController {
 
     @GetMapping("/articles")
     public Map<?, ?> list() {
+        printer.accept("===== 목록 진입 =====");
         var map = px.hashmap();
         map.put("list", articleService.list());
+        map.put("count", articleService.count());
         return map;
     }
 
     @GetMapping("/articles/crawling/{site}")
     public Map<?, ?> crawling(@PathVariable String site) {
         var map = px.hashmap();
-        if (px.equals(site, "bugs")) {
-            int count = articleService.crawling("https://music.bugs.co.kr/recomreview?&order=listorder&page=2");
+        var count = articleService.count();
+        if (count == 0) {
+            switch (site) {
+                case "bugs":
+                    map.put("count",
+                            articleService.crawling("https://music.bugs.co.kr/recomreview?&order=listorder&page=2"));
+                    break;
+            }
+        } else {
             map.put("count", count);
-
         }
         return map;
     }

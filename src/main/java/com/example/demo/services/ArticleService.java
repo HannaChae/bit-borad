@@ -13,6 +13,8 @@ public interface ArticleService {
 
     public List<ArticleDto> list();
 
-    public int crawling(String string);
+    public int crawling(String url);
+
+    public int count();
 
 }
