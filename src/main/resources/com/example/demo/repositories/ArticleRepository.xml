@@ -18,4 +18,24 @@ values (#{writerId}, #{title}, #{content}, #{regDate}, #{count})
            count
            from articles
 </select>
+<select id="selectById" resultType="com.example.demo.domains.ArticleDto" parameterType="string">
+    select art_num artNum,
+           writer_id writerId,
+           title, 
+           content, 
+           reg_date regDate, 
+           count
+           from articles
+           where art_num like #{value}
+</select>
+<update id="updateCount" parameterType="String">
+update articles set count = count+1 where art_num like #{value}
+</update>
+<update id="update" parameterType="com.example.demo.domains.ArticleDto">
+    update articles set title = #{title}, content = #{content}
+    where art_num like #{artNum}
+</update>
+<delete id="delete" parameterType="com.example.demo.domains.ArticleDto">
+    delete from articles where art_num like #{artNum}
+</delete>
 </mapper>

@@ -12,33 +12,12 @@ import lombok.Data;
 @Lazy
 public class Box<T> {
     private ArrayList<T> list;
-
-    public Box() {
-        list = new ArrayList<T>();
-    }
-
-    public void add(T t) {
-        list.add(t);
-    }
-
-    public T get(int i) {
-        return list.get(i);
-    }
-
-    public ArrayList<T> get() {
-        return list;
-    }
-
-    public int size() {
-        return list.size();
-    }
-
-    public String toString() {
-        return list.toString();
-    }
-
-    public void clear() {
-        list.clear();
-    }
-
+    public Box() {list = new ArrayList<T>();}
+    public void add(T t) {list.add(t);}
+    public T get(int i) {return list.get(i);}
+    public ArrayList<T> get() {return list;}
+    public int size() {return list.size();}
+    public String toString() {return list.toString();}
+    public void clear() {list.clear();}
+    public boolean contains(T t){return list.contains(t);}
 }

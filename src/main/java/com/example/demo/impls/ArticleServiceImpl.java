@@ -16,16 +16,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
-    @Autowired
-    ArticleRepository articleRepository;
-    @Autowired
-    Printer printer;
-    @Autowired
-    Crawler crawler;
-    @Autowired
-    UserGenerator ug;
-    @Autowired
-    ArticleDto article;
+    @Autowired ArticleRepository articleRepository;
+    @Autowired Printer printer;
+    @Autowired Crawler crawler;
+    @Autowired UserGenerator ug;
+    @Autowired ArticleDto article;
 
     @Override
     public int write(ArticleDto article) {
@@ -60,6 +55,27 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public int count() {
         return articleRepository.count();
+    }
+
+    @Override
+    public ArticleDto getArticleById(String artNum) {
+        return articleRepository.selectById(artNum);
+    }
+
+    @Override
+    public int increaseCount(String artNum) {
+        return articleRepository.updateCount(artNum);
+
+    }
+
+    @Override
+    public int update(ArticleDto article) {
+        return articleRepository.update(article);
+    }
+
+    @Override
+    public int delete(ArticleDto article) {
+        return articleRepository.delete(article);
     }
 
 }
