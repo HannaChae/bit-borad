@@ -14,7 +14,12 @@
     <script>
     $('#registration').click(e=>{location.href = "/move/products/registration"})
     $('#list').click(e=>{location.href = "/move/products/list"})
-    $('#crawling').click(e=>{location.href = "/move/products/crawling"})
+    $('#crawling').click(e=>{
+        alert(`크롤링 시도`),
+        $.getJSON("/products/crawling/thepicker", 
+        d=>{alert(`등록된 상품 수: ${d.count}`)
+        })
+    })
     </script>
 </body>
 </html>

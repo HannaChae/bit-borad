@@ -5,10 +5,8 @@ import org.springframework.stereotype.Component;
 import lombok.Getter;
 import lombok.Setter;
 
-@Component
-@Getter
-@Setter
+@Component @Getter @Setter
 public class ProductDto {
-    private String orderNum, purchaserId, productName, price, regDate;
+    private String proNum, productName, option, price, regDate, count;
 
 }

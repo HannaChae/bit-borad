@@ -3,7 +3,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.repositories.ProductRepository">
     <insert id="insert" parameterType="com.example.demo.domains.ProductDto">
-        insert into products ( product_name, content, price, reg_date, count)
-        values (#{productName}, #{content}, #{prict}, #{regDate}, #{count})
+        insert into products ( pro_num, product_name, option, price, reg_date, count)
+        values (#{proNum}, #{productName}, #{option}, #{price}, #{regDate}, #{count})
     </insert>
+    <select id="count" resultType="com.example.demo.domains.ProductDto">
+        select count(*) from products
+    </select>
+    <select id="selectAll" resultType="com.example.demo.domains.ProductDto">
+        select pro_num proNum,
+               product_name productName,
+               option,
+               price,
+               reg_date regDate,
+               count
+               from products
+    </select>
 </mapper>
