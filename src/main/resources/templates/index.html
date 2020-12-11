@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <h1> Home </h1>
-
+    <a href="#" id="registration">상품 등록</a>
+    <a href="#" id="list">상품 목록</a>
+    <a href="#" id="crawling">웹 크롤링</a>
+    <script>
+    $('#registration').click(e=>{location.href = "/move/products/registration"})
+    $('#list').click(e=>{location.href = "/move/products/list"})
+    $('#crawling').click(e=>{location.href = "/move/products/crawling"})
+    </script>
 </body>
 </html>

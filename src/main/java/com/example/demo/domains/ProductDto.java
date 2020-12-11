@@ -8,7 +8,7 @@ import lombok.Setter;
 @Component
 @Getter
 @Setter
-public class ArticleDto {
-    private String artnum, wirterid, title, content, regDate;
+public class ProductDto {
+    private String orderNum, purchaserId, productName, price, regDate;
 
 }
